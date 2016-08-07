@@ -10,4 +10,7 @@ app.get('/', function (req, res) {
 });
 
 app.listen(PORT);
-console.log('Running on http://localhost:' + PORT);
+
+if (process.env.APP_ENVIRONMENT === "dev"){
+	console.log('****************** App Ready');
+}
