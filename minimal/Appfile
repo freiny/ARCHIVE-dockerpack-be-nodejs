@@ -1,8 +1,0 @@
-application {
-  name = "Go-Hello-World"
-  type = "go"
-}
-
-customization {
-  go_version = "1.6.2"
-}
