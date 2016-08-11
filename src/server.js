@@ -1,16 +1,24 @@
 'use strict';
-
-const express = require('express');
 const PORT = process.env.HTTP_PORT;
-
+const express = require('express');
 const app = express();
-app.get('/', function (req, res) {
-  res.send('BE Hello World!\n');
-	console.log("ping");
-});
 
+app.get('/', onRoot);
+app.get('/api/test', apiTest);
 app.listen(PORT);
+appReady()
 
-if (process.env.APP_ENVIRONMENT === "dev"){
-	console.log('****************** App Ready');
+function appReady(){
+	if (process.env.APP_ENVIRONMENT === "dev"){
+		console.log('****************** App Ready');
+	}
+}
+
+function onRoot(req, res) {
+	res.send('BE Hello World!\n');
+	console.log("ping");
+}
+
+function apiTest(req, res) {
+	res.json({msg:"hello world"});
 }
